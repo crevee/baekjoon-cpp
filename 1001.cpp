@@ -15,6 +15,6 @@ int main()
 
     std::cin >> A >> B;
     std::cout << A - B;
-    
+   
     return 0;
 }
