@@ -15,3 +15,4 @@ int main() {
 	scanf("%d %d %d %d %d", &A, &B, &C, &D, &E);
 	std::cout << ((A*A)+(B*B)+(C*C)+(D*D)+(E*E))%10 << std::endl;
 }
+
