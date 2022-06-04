@@ -19,3 +19,4 @@ int main() {
 			  << A / B << std::endl
 			  << A % B << std::endl;
 }
+
