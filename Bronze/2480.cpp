@@ -18,19 +18,19 @@ int main() {
 	{
 		std::cout << 10000 + a * 1000;
 	}
-	else if ( a != b && b != c)
+	else if ( a != b && a != c && b != c)
 	{
 		int max = (a >= b && a >= c) ? a : (b >= a && b >= c) ? b : c;
 
 		std::cout << (max) * 100;
 	}
-	else
+	else if (a == b || a == c || b == c)
 	{
 		if (b == c)
 		{
 			std::cout << 1000 + (b) * 100;
 		}
-		else
+		else if (a == b || a == c)
 		{
 			std::cout << 1000 + (a) * 100;
 		}
