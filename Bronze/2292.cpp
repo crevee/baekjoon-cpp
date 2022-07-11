@@ -12,7 +12,7 @@
 int main() {
 
 	std::ios::sync_with_stdio(0);
-	std::cin.tie(0);
+	std::cin.tie(0); 
 
 	int n = 0, count = 0, sum = 1;
 
