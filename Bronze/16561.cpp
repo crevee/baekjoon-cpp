@@ -28,3 +28,20 @@ int main() {
 
 	return 0;
 }
+
+
+// 다른 방법
+
+/*
+
+n-1 C n-3 공식 사용
+
+if (n < 9)
+	std::cout << 0;
+else
+	{
+	n = (n - 9) / 3 + 3 - 1;
+	std::cout << n * (n - 1) / 2;
+	}
+
+*/
