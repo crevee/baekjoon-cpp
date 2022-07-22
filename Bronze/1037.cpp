@@ -16,7 +16,7 @@ int main() {
 	std::cin.tie(0);
 
 
-	int count = 0, result = 0;
+	int count = 0;
 	int* divisor;
 
 
@@ -43,16 +43,7 @@ int main() {
 		}
 	}
 
-	if (count == 1)
-	{
-		result = divisor[0] * divisor[0];
-	}
-	else
-	{
-		result = divisor[0] * divisor[count - 1];
-	}
-
-	std::cout << result;
+	std::cout << divisor[0] * divisor[count - 1];
 
 	return 0;
 
