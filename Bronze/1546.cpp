@@ -7,43 +7,49 @@
 * 정답 비율 : 49.058%
 */
 
-#include <iostream>
-
+#include<iostream>
 
 int main() {
 
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
 
+	int n = 0, m = 0;
 
-	int count = 0;
-	int* divisor;
+	double result = 0;
+	
+	double* score;
 
+	std::cin >> n;
 
-	std::cin >> count;
+	score = new double [n];
 
-	divisor = new int[count];
-
-
-	for(int i = 0; i < count; i++)
+	for (int i = 0; i < n; i++)
 	{
-		std::cin >> divisor[i];
+		std::cin >> score[i];
 	}
 
-	for (int i = 0; i < count-1; i++)
+	for (int i = 0; i < n - 1; i++)
 	{
-		for (int j = i+ 1; j < count; j++)
+		for (int j = i + 1; j < n; j++)
 		{
-			if (divisor[i] > divisor[j])
+			if (score[i] > score[j])
 			{
-				int temp = divisor[i];
-				divisor[i] = divisor[j];
-				divisor[j] = temp;
+				int tmp = score[i];
+				score[i] = score[j];
+				score[j] = tmp;
 			}
 		}
 	}
 
-	std::cout << divisor[0] * divisor[count - 1];
+
+
+	for (int i = 0; i < n; i++)
+	{
+		result += score[i] / score[n - 1] * 100;
+	}
+
+	std::cout << result / n;
 
 	return 0;
 
