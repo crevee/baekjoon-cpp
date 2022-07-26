@@ -1,0 +1,46 @@
+//BaekJoon_1453.cpp
+//피시방 알바
+
+/*
+* 제한 시간 : 0ms / 2s
+* 메모리 제한 : 2020KB / 128MB
+* 정답 비율 : 46.540%
+*/
+
+#include <iostream>
+
+
+int main() {
+
+
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+
+
+	int a, b, result = 0;
+	int* sequence;
+
+	std::cin >> a >> b;
+
+	sequence = new int[b] {0};
+
+
+	for (int i = 0; i < b; i++)
+	{
+		for (int j = 0; j <= i; j++)
+		{
+			sequence[i] = i + 1;
+			std::cout << sequence[i] << " ";
+		}
+	}
+
+	
+	for (int k = 1; k < b; k++)
+	{
+		result += sequence[k -1];
+		std::cout << sequence[5];
+	}
+	std::cout << result;
+
+	return 0;
+}
