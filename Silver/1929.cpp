@@ -1,3 +1,15 @@
+//BaekJoon_1929.cpp
+//소수 구하기
+
+/*
+* 제한 시간 : 188ms / 2s
+* 메모리 제한 : 2020KB / 256MB
+* 정답 비율 : 26.613%
+*/
+
+
+##방법 1 시간 188ms / 메모리 2020KB
+
 #include <iostream>
 
 bool prime(int i) {
