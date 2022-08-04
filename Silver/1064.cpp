@@ -7,34 +7,53 @@
 * 정답 비율 : 31.594%
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+
 using namespace std;
 
-struct Point{ double x,y; };
-Point a, b, c;
-double abLen, acLen, bcLen, len1, len2, len3;
+struct Vertex {double x, y;};
+Vertex a, b, c;
 
-double getLength(Point a, Point b){
-  double x = a.x - b.x;
-  double y = a.y - b.y;
-  return sqrt(x*x + y*y);
+double abLength, acLength, bcLength, Length_1, Length_2, Length_3;
+
+
+double getLength(Vertex a, Vertex b)
+{
+    double x = a.x - b.x;
+    double y = a.y - b.y;
+    
+    return sqrt(x * x + y * y);
 }
 
-double getInclination(Point a, Point b){
-  return abs(a.y-b.y) / abs(a.x- b.x);
+
+double getSlope(Vertex a, Vertex b)
+{
+    return abs(a.y - b.y) / abs(a.x - b.x);
 }
 
-int main(){
-  cin >> a.x >> a.y >> b.x >> b.y >> c.x >> c.y;
-  if(getInclination(a, b) == getInclination(b, c)) {cout << "-1.0"; return 0;}
 
-  abLen = getLength(a, b);
-  bcLen = getLength(b, c);
-  acLen = getLength(a, c);
+int main() {
 
-  len1 = (abLen + bcLen) * 2;
-  len2 = (acLen + bcLen) * 2;
-  len3 = (abLen + acLen) * 2;
-  
-  printf("%.16f",max({len1, len2, len3}) - min({len1, len2, len3})); 
+    cin >> a.x >> a.y >> b.x >> b.y >> c.x >> c.y;
+    
+    if(getSlope(a, b) == getSlope(b, c))
+    {
+        cout << -1;
+        
+        return 0;
+    }
+    
+    abLength = getLength(a, b);
+    bcLength = getLength(b, c);
+    acLength = getLength(a, c);
+    
+    Length_1 = (abLength + bcLength) * 2;
+    Length_2 = (acLength + bcLength) * 2;
+    Length_3 = (abLength + acLength) * 2;
+    
+    printf("%.16f", std::max({Length_1, Length_2, Length_3})
+                  - std::min({Length_1, Length_2, Length_3}));
+    
 }
