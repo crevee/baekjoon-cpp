@@ -7,6 +7,8 @@
 * 정답 비율 : 58.256%
 */
 
+//방법 1
+
 #include <iostream>
 
 int main()
@@ -23,6 +25,30 @@ int main()
 	{
 		std::cin >> a >> b;
 		std::cout << a + b << std::endl;
+	}
+	return 0;
+}
+
+//방법 2
+//std::endl -> '\n' 변경
+//4ms -> 0ms
+
+#include <iostream>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+
+
+	int t, a, b;
+
+	std::cin >> t;
+
+	for (int i = 0; i < t; i++)
+	{
+		std::cin >> a >> b;
+		std::cout << a + b << '\n';
 	}
 	return 0;
 }
