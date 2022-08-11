@@ -1,4 +1,4 @@
-//BaekJoon_10818.cpp
+//BaekJoon_10818
 //최소, 최대
 
 /*
