@@ -1,5 +1,5 @@
 //BaekJoon_15829
-//
+//Hashing
 
 /*
 * 제한 시간 : 0ms / 1s
