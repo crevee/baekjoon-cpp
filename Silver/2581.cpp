@@ -48,5 +48,6 @@ else
 {
     std::cout << sum << '\n' << min << '\n';
 }
+    
 return 0;
 }
