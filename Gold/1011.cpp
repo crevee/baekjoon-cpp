@@ -34,10 +34,10 @@ int main() {
 
 		result = 2 * max - 1;
 
-		long long distance = y - x - max * max;
+		long long remainder_distance = y - x - max * max;
 
-		distance = (long long)ceil((double)distance / (double)max);
-		result += distance;
+		remainder_distance = (long long)ceil((double)remainder_distance / (double)max);
+		result += remainder_distance;
 
 		std::cout << result << '\n';
 	}
