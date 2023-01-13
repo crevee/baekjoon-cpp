@@ -10,43 +10,44 @@
 #include <iostream>
 
 int n;
-int paper[128][128];
+int paper[128][128]{};
 int blue = 0, white = 0;
 
-void Solve(int y, int x, int size)
-{
-    int check = paper[y][x];
-    for (int i = y; i < y + size; i++){
-        for (int j = x; j < x + size; j++){
-            if (check == 0 && paper[i][j] == 1){
-                check = 2;
-            }
-            else if (check == 1 && paper[i][j] == 0){
-                check = 2;
-            }
+void Count(int y, int x, int size) {
+	int check = paper[y][x];
 
+	for (int i = y; i < y + size; i++) {
+		for (int j = x; j < x + size; j++) {
+			if (check == 0 && paper[i][j] == 1) {
+				check = 2;
+			}
+			else if (check == 1 && paper[i][j] == 0) {
+				check = 2;
+			}
 
-            if (check == 2){
-                Solve(y, x, size / 2);
-                Solve(y, x + size / 2, size / 2);
-                Solve(y + size / 2, x, size / 2);
-                Solve(y + size / 2, x + size / 2, size / 2);
-                return;
-            }
-        }
-    }
-    if (check == 0) {
-        white++;
-    }
-    else {
-        blue++;
-    }
+			if(check == 2)
+			{
+				Count(y, x, size / 2);
+				Count(y, x + size / 2, size / 2);
+				Count(y + size / 2, x, size / 2);
+				Count(y + size / 2, x + size / 2, size / 2);
+				return;
+			}
+		}
+	}
+
+	if (check == 0) {
+		white++;
+	}
+	else {
+		blue++;
+	}
 }
 
 int main() {
-
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
+	std::cout.tie(0);
 
 	std::cin >> n;
 
@@ -56,10 +57,7 @@ int main() {
 		}
 	}
 
-	Solve(0, 0, n);
-
+	Count(0, 0, n);
 	std::cout << white << '\n';
 	std::cout << blue << '\n';
-
-	return 0;
 }
