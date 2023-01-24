@@ -21,7 +21,7 @@ int main() {
 	int m, n;
 	
 	std::string s;
-	std::string nums[11] = { "zero", "one", "two", "thre", "four", "five", "six", "seven", "eight", "nine" };
+	std::string nums[11] = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
 	std::vector<std::pair<std::string, int>> answer;
 
