@@ -79,17 +79,24 @@ int main() {
 
 	std::sort(a, a + n);
 
-	if (m > 200000) {
-		std::cout << 0;
-	}
-	else {
-		for (int i = 0; i < n; i++) {
-			for (int j = i + 1; j < n; j++) {
-				if (m == a[i] + a[j]) {
-					count++;
-				}
-			}
+	int start = 0, end = n - 1;
+
+	while (start < end) {
+		if (a[start] + a[end] == m) {
+			count++;
+			start++;
+			end--;
 		}
-		std::cout << count;
+
+		if (a[start] + a[end] < m) {
+			start++;
+		}
+
+		if (a[start] + a[end] > m) {
+			end--;
+		}
 	}
+
+	std::cout << count;
 }
+
