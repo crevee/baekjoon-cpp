@@ -1,5 +1,5 @@
 //BaekJoon_17626
-//
+//Four Squares
 
 
 /*
