@@ -42,3 +42,42 @@ int main(){
     return 0;
 }
 
+/*
+* 제한 시간 : 1780ms / 5s
+* 메모리 제한 : 2060KB / 8MB
+* 정답 비율 : 23.534%
+*/
+
+/*
+#include<iostream>
+
+using namespace std;
+
+int count_array[10001] = { 0 };
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int n;
+
+	cin >> n;
+
+	int number = 0;
+
+	for (int i = 1; i <= n; i++) {
+		cin >> number;
+		count_array[number]++;
+	}
+
+	for (int i = 1; i <= 10000; i++) {
+		if (count_array[i] != 0) {
+			for (int j = 0; j < count_array[i]; j++) {
+				cout << i << "\n";
+			}
+		}
+	}
+}
+*/
+
