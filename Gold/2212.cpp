@@ -44,7 +44,7 @@ int main(void) {
 
 	cout << answer;
 
-  delete [] sensor, dist;
-  
+	delete [] sensor, dist;
+
 	return 0;
 }
