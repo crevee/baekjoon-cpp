@@ -8,7 +8,6 @@
 */
 
 #include <iostream>
-#include <algorithm>
 #include <queue>
 #include <vector>
 
@@ -38,9 +37,9 @@ int main(void) {
 		q.pop();
 
 		for (int i = 0; i < last; i++) {
-			long long new_num = num * 10 + i;
-			q.push(new_num);
-			v.push_back(new_num);
+			long long decreasing_num = num * 10 + i;
+			q.push(decreasing_num);
+			v.push_back(decreasing_num);
 		}
 	}
 
