@@ -8,29 +8,45 @@
 * 정답 비율 : 54.928%
 */
 
-#include<iostream>
+#include <iostream>
+#include <queue>
 
 using namespace std;
 
-int Min(int x, int y) {
-	return x > y ? y : x;
-}
+int main(void) {
 
-int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
-	cout.tie(NULL);
 
-	int n, m, a, b;
-	int package = 1000, single = 1000;
+	int n, w, l, answer = 0, a[1000];
+	queue<int> q;
 
-	cin >> n >> m;
+	cin >> n >> w >> l;
 
-	for (int i = 0; i < m; i++) {
-		cin >> a >> b;
-		package = Min(package, a);
-		single = Min(single, b);
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
 	}
-	cout << Min((n / 6 + 1) * package, 
-		Min(n / 6 * package + n % 6 * single, n * single)) << "\n";
+
+	int weight_sum = 0;
+
+	for (int i = 0; i < n; i++) {
+		while (true) {
+			if (q.size() == w) {
+				weight_sum -= q.front();
+				q.pop();
+			}
+			if (a[i] + weight_sum <= l) {
+				break;
+			}
+			q.push(0);
+			answer++;
+		}
+		q.push(a[i]);
+		weight_sum += a[i];
+		answer++;
+	}
+
+	cout << answer + w;
+
+	return 0;
 }
