@@ -1,48 +1,43 @@
 //BaekJoon_2669
-//어린 왕자
+//직사각형 네개의 합집합의 면적 구하기
 
 
 /*
-* 제한 시간 : 0ms / 2s
-* 메모리 제한 : 2020KB / 128MB
-* 정답 비율 : 44.825%
+* 제한 시간 : 0ms / 1s
+* 메모리 제한 : 2032KB / 128MB
+* 정답 비율 : 75.663%
 */
 
 #include <iostream>
 
-int main()
-{
-	std::ios::sync_with_stdio(0);
-	std::cin.tie(0);
+using namespace std;
 
-	int t, n;
-	int x1, y1, x2, y2;
-	int x, y, r;
+bool square[101][101];
 
-	std::cin >> t;
+int main(void) {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
 
-	for (int i = 0; i < t; i++) {
-		std::cin >> x1 >> y1 >> x2 >> y2;
+	int a, b, c, d;
 
-		std::cin >> n;
+	for (int i = 0; i < 4; i++) {
+		cin >> a >> b >> c >> d;
 
-		int in_count = 0, out_count = 0;
-
-		for (int j = 0; j < n; j++) {
-			std::cin >> x >> y >> r;
-
-			if ((x - x1) * (x - x1) + (y - y1) * (y - y1) < r * r) {
-				if ((x - x2) * (x - x2) + (y - y2) * (y - y2) > r * r) {
-					out_count++;
-				}
-			}
-			if ((x - x1) * (x - x1) + (y - y1) * (y - y1) > r * r) {
-				if ((x - x2) * (x - x2) + (y - y2) * (y - y2) < r * r) {
-					in_count++;
-				}
+		for (int j = a; j < c; j++) {
+			for (int k = b; k < d; k++) {
+				square[j][k] = true;
 			}
 		}
-
-		std::cout << in_count + out_count << '\n';
 	}
+
+	int result = 0;
+
+	for (int i = 0; i < 101; i++) {
+		for (int j = 0; j < 101; j++) {
+			if (square[i][j] == true) {
+				result++;
+			}
+		}
+	}
+	cout << result;
 }
