@@ -11,7 +11,7 @@
 
 using namespace std;
 
-int n, m, a[9];
+int n, m, a[8];
 
 void Recur(int x){
     if(x == m + 1){
