@@ -1,11 +1,11 @@
-//BaekJoon_10157
-//자리배정
+//BaekJoon_28278
+//스택 2
 
 
 /*
-* 제한 시간 : 4ms / 1s
-* 메모리 제한 : 5864KB / 256MB
-* 정답 비율 : 38.259%
+* 제한 시간 : 144ms / 2s
+* 메모리 제한 : 6300KB / 1024MB
+* 정답 비율 : 39.758%
 */
 
 #include<iostream>
@@ -17,42 +17,42 @@ int main(void){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int N, C, X;
-    stack<int> S;
+    int n, c, x;
+    stack<int> s;
     
-    cin >> N;
-        while (N--) {
-            cin >> C;
-            if (C == 1) {
-                cin >> X;
-                S.push(X);
+    cin >> n;
+        while (n--) {
+            cin >> c;
+            if (c == 1) {
+                cin >> x;
+                S.push(x);
             }
-            else if (C == 2) {
-                if (S.empty()) {
+            else if (c == 2) {
+                if (s.empty()) {
                     cout << "-1\n";
                 }
                 else {
-                    cout << S.top() << "\n";
-                    S.pop();
+                    cout << s.top() << "\n";
+                    s.pop();
                 }
             }
-            else if (C == 3) {
-                cout << (int)S.size() << "\n";
+            else if (c == 3) {
+                cout << (int)s.size() << "\n";
             }
-            else if (C == 4) {
-                if (S.empty()) {
+            else if (c == 4) {
+                if (s.empty()) {
                     cout << "1\n";
                 }
                 else {
                     cout << "0\n";
                 }
             }
-            else if (C == 5) {
-                if (S.empty()) {
+            else if (c == 5) {
+                if (s.empty()) {
                     cout << "-1\n";
                 }
                 else {
-                    cout << S.top() << "\n";
+                    cout << s.top() << "\n";
                 }
             }
         };
