@@ -31,3 +31,5 @@ int main(void){
     
     cout << a << ' ' << b << ' ' << c;
 }
+
+
