@@ -1,10 +1,10 @@
-//BaekJoon_9417.cpp
-//다리 놓기
+//BaekJoon_9417
+//최대 GCD
 
 /*
-* 제한 시간 : 0ms / 0.5s
-* 메모리 제한 : 2020KB / 128MB
-* 정답 비율 : 48.353%
+* 제한 시간 : 0ms / 1s
+* 메모리 제한 : 2024KB / 128MB
+* 정답 비율 : 66.103%
 */
 
 #include <iostream>
@@ -33,12 +33,13 @@ int main(void){
     
     cin >> n;
     
+    cin.ignore();
+    
     for(int i = 0 ; i < n; i++){
         int result = 0;
         
         vector<int> v;
         
-        cin.ignore();
         getline(cin , s);
         
         string tmp;
@@ -60,8 +61,8 @@ int main(void){
                     result = GCD(v[i], v[j]);
                 }
             }
-            cout << result << '\n';
         }
+        cout << result << '\n';
     }
     return 0;
 }
