@@ -8,88 +8,37 @@
 */
 
 #include <iostream>
-#include <vector>
-#include <queue>
-#include <cstring>
+#include <array>
+#include <algorithm>
 
 using namespace std;
 
-int n;
-char map[100][100];
-bool visited[100][100];
+array<array<int, 2>, 100000> dp;
+array<int, 100000> a;
 
-void BFS(int a, int b){
-    queue<pair<int ,int>>q;
-    q.push(make_pair(a, b));
-    
-    int dx[] = {-1, 0, 0, 1};
-    int dy[] = {0, -1, 1, 0};
-    
-    visited[a][b] = true;
-    
-    while(q.empty() == 0){
-        int x = q.front().first;
-        int y = q.front().second;
-        q.pop();
-        
-        for(int i = 0 ; i < 4; i++){
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            
-            if(nx >= 0 && ny >= 0 && nx < n && ny < n){
-                if(visited[nx][ny] == false){
-                    if(map[nx][ny] == map[x][y]){
-                        visited[nx][ny] = true;
-                        q.push(make_pair(nx, ny));
-                    }
-                }
-            }
-        }
-    }
-}
+int main() {
 
-int main(void){
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    
-    int result_1 = 0, result_2 = 0;
-    
-    cin >> n;
-    
-    for(int i = 0 ; i < n ; i++){
-        for(int j = 0; j < n ; j++){
-            cin >> map[i][j];
-        }
-    }
-    
-    for(int i = 0 ; i < n ; i++){
-        for(int j = 0 ; j < n; j++){
-            if(visited[i][j] == false){
-                BFS(i, j);
-                result_1++;
-            }
-        }
-    }
-    
-    memset(visited, false, sizeof(visited));
-    
-    for(int i = 0 ; i < n ; i++){
-        for(int j = 0 ; j < n ; j++){
-            if(map[i][j] == 'G'){
-                map[i][j] = 'R';
-            }
-        }
-    }
-    
-    for(int i = 0 ; i < n ; i++){
-        for(int j = 0 ; j < n ; j++){
-            if(visited[i][j] == false){
-                BFS(i, j);
-                result_2++;
-            }
-        }
-    }
-    
-    cout << result_1 << ' ' << result_2;
-    return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int n, result = 0;
+
+	cin >> n;
+
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+	}
+
+	dp[0][0] = a[0];
+	dp[0][1] = a[0];
+
+	result = a[0];
+
+	for (int i = 1; i < n; i++) {
+		dp[i][0] = max(dp[i - 1][0] + a[i], a[i]);
+		dp[i][1] = max(dp[i - 1][0], dp[i - 1][1] + a[i]);
+		result = max(result, max(dp[i][0], dp[i][1]));
+	}
+
+	cout << result;
 }
