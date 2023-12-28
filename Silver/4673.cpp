@@ -45,3 +45,37 @@ int main() {
 	}
 	return 0;
 }
+
+//방법 2
+
+/*
+#include <iostream>
+
+using namespace std;
+
+bool check[100001];
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	for (int i = 1; i < 100001; i++) {
+		int sum = 0;
+		int a = i;
+
+		while (a != 0) {
+			sum += a % 10;
+			a /= 10;
+		}
+		if (i + sum < 10001) {
+			check[i + sum] = true;
+		}
+	}
+
+	for (int i = 1; i < 10001; i++) {
+		if (!check[i]) {
+			cout << i << '\n';
+		}
+	}
+	return 0;
+}*/
