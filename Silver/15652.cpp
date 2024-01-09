@@ -28,7 +28,7 @@ void Func(int start, int cnt) {
 	}
 
 	for (int i = start; i <= n; i++) {
-		visited[i] == true;
+		visited[i] = true;
 		a[cnt] = i;
 		Func(i, cnt + 1);
 		visited[i] = false;
