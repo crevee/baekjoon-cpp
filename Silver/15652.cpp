@@ -15,7 +15,6 @@ using namespace std;
 int n, m;
 
 int a[9];
-bool visited[9];
 
 void Func(int start, int cnt) {
 	if (cnt == m) {
@@ -28,10 +27,8 @@ void Func(int start, int cnt) {
 	}
 
 	for (int i = start; i <= n; i++) {
-		visited[i] = true;
 		a[cnt] = i;
 		Func(i, cnt + 1);
-		visited[i] = false;
 	}
 }
 
