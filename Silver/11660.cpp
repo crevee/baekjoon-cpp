@@ -3,40 +3,42 @@
 
 /*
 * 제한 시간 : 128ms / 1s
-* 메모리 제한 : 10228KB / 256MB
-* 정답 비율 : 44.529%
+* 메모리 제한 : 6264KB / 256MB
+* 정답 비율 : 44.110%
 */
 
-#include<iostream>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-int a[1025][1025], dp[1025][1025];
-
-int main(void) {
-
+int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
 
 	int n, m;
-	int x_1, x_2, y_1, y_2, answer;
 
 	cin >> n >> m;
 
+	vector<vector<int>> v(n + 1, vector<int>(n + 1));
+
 	for (int i = 1; i <= n; i++) {
 		for (int j = 1; j <= n; j++) {
-			cin >> a[i][j];
-			dp[i][j] = dp[i - 1][j] + dp[i][j - 1] - dp[i - 1][j - 1] + a[i][j];
+			cin >> v[i][j];
+
+			v[i][j] = v[i][j - 1] + v[i - 1][j] - v[i - 1][j - 1] + v[i][j];
 		}
 	}
 
 	for (int i = 0; i < m; i++) {
-		cin >> x_1 >> y_1;
-		cin >> x_2 >> y_2;
+		int x1, x2, y1, y2;
+		int result;
+		 
+		cin >> x1 >> y1 >> x2 >> y2;
 
-		answer = dp[x_2][y_2] - dp[x_1 - 1][y_2] - dp[x_2][y_1 -1]
-			+ dp[x_1 - 1][y_1- 1];
+		result = v[x2][y2] - v[x1 - 1][y2] - v[x2][y1 - 1] + v[x1 - 1][y1 - 1];
 
-		cout << answer << '\n';
+		cout << result << '\n';
 	}
+	return 0;
 }
