@@ -3,60 +3,62 @@
 
 /*
 * 제한 시간 : 16ms / 2s
-* 메모리 제한 : 2020KB / 256MB
-* 정답 비율 : 24.067%
+* 메모리 제한 : 2160KB / 256MB
+* 정답 비율 : 24.318%
 */
 
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
 int main() {
-
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
-	cout.tie(NULL);
 
-	int n;
+	int n, result = 0;
+	vector<int> v;
+
 	cin >> n;
 
-	vector<int> a(n, 0);
-
 	for (int i = 0; i < n; i++) {
-		cin >> a[i];
+		int tmp;
+
+		cin >> tmp;
+
+		v.emplace_back(tmp);
 	}
 
-	sort(a.begin(), a.end());
+	sort(v.begin(), v.end());
 
-	int result = 0;
+	for (int i = 0; i < n; i++) {
+		long long find = v[i];
+		int left = 0, right = n - 1;
 
-	for (int k = 0; k < n; k++) {
-		long find = a[k];
-		int start = 0;
-		int end = n - 1;
-
-		while (start < end) {
-			if (a[start] + a[end] == find) {
-				if (start != k && end != k) {
+		while (left < right) {
+			if (v[left] + v[right] == find) {
+				if (left != i && right != i) {
 					result++;
 					break;
 				}
-				else if (start == k) {
-					start++;
+				else if (left == i) {
+					left++;
 				}
-				else if (end == k) {
-					end--;
+				else if (right == i) {
+					right--;
 				}
 			}
-			else if(a[start] + a[end] < find){
-				start++;
+			else if (v[left] + v[right] < find) {
+				left++;
 			}
 			else {
-				end--;
+				right--;
 			}
 		}
 	}
+
 	cout << result;
+
+	return 0;
 }
