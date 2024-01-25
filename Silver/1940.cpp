@@ -5,51 +5,56 @@
 
 방법 1
 
-* 제한 시간 : 92ms / 2s
-* 메모리 제한 : 2200KB / 128MB
-* 정답 비율 : 47.266%
+* 제한 시간 : 0ms / 2s
+* 메모리 제한 : 2160KB / 128MB
+* 정답 비율 : 47.394%
 */
 
-/*
 #include <iostream>
+#include <vector>
 #include <algorithm>
 
+using namespace std;
+
 int main() {
-	std::ios::sync_with_stdio(0);
-	std::cin.tie(0);
-	std::cout.tie(0);
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+	
+	int n, m;
 
-	int n, m, count = 0;
-	int* a;
+	cin >> n >> m;
 
-	std::cin >> n >> m;
-
-	a = new int[n];
+	vector<int> v;
 
 	for (int i = 0; i < n; i++) {
-		std::cin >> a[i];
+		int tmp;
+		cin >> tmp;
+
+		v.emplace_back(tmp);
 	}
 
-	std::sort(a, a + n);
+	sort(v.begin(), v.end());
 
-	if (m > 200000) {
-		std::cout << 0;
-	}
-	else {
-		for (int i = 0; i < n; i++) {
-			for (int j = i + 1; j < n; j++) {
-				if (m == a[i] + a[j]) {
-					count++;
-				}
-			}
+	int left = 0, right = n - 1, result = 0;
+
+	while (left < right) {
+		if (v[left] + v[right] < m) {
+			left++;
 		}
-		std::cout << count;
+		else if (v[left] + v[right] > m) {
+			right--;
+		}
+		else {
+			result++;
+			left++;
+			right--;
+		}
 	}
+	cout << result;
+
+	return 0;
 }
-*/
-
-
-/*
 
 방법 2
 
@@ -99,4 +104,3 @@ int main() {
 
 	std::cout << count;
 }
-
