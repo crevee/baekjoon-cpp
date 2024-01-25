@@ -8,7 +8,6 @@
 * 제한 시간 : 0ms / 2s
 * 메모리 제한 : 2160KB / 128MB
 * 정답 비율 : 47.394%
-*/
 
 #include <iostream>
 #include <vector>
